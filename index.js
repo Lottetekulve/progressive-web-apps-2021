@@ -12,17 +12,17 @@ app.use(express.static(path.join(__dirname, "static/public")));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-app.get('/', function(req, res) {
-  res.send('Hello World!')
-})
+// app.get('/', function(req, res) {
+//   res.send('Hello World!')
+// })
+
+fetch('https://www.rijksmuseum.nl/api/nl/collection/?key=7TAeATmh&ps=200')
+    .then(res => res.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err))
 
 // Create a route for our overview page
-app.get('/artobjects', function(res) {
-  fetch('https://www.rijksmuseum.nl/api/nl/collection/?key=7TAeATmh&ps=200')
-    .then(res => res.json())
-    .then(json => console.log(json)),
-
-      function(err, res, body){
+app.get('/', function(err, res) {
       
         if (err) {
           // We got an error
@@ -35,8 +35,7 @@ app.get('/artobjects', function(res) {
             postData: body
             });
           }
-	};
-});
+	});
 
 
 app.listen(port, function() {
