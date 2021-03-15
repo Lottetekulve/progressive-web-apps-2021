@@ -1,41 +1,53 @@
 const express = require("express")
-var fetch = require('node-fetch');
 const path = require('path');
 const app = express()
 const port = 3000
+const getData = require('./modules/api.js')
 
+const data = getData()
 
-
-// Tell express to use a 'static' folder
-// If the url matches a file it will send that filei
+// Tell express to use a 'static/public' folder
+// If the url matches a file it will send that file
 app.use(express.static(path.join(__dirname, "static/public")));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-// app.get('/', function(req, res) {
-//   res.send('Hello World!')
-// })
 
-fetch('https://www.rijksmuseum.nl/api/nl/collection/?key=7TAeATmh&ps=200')
-    .then(res => res.json())
-    .then(json => console.log(json))
-    .catch(err => console.log(err))
+app.get('/', function(req, res,) {
+  res.send('Hello World!')
+});
 
-// Create a route for our overview page
-app.get('/', function(err, res) {
+
+app.get('/artobjects', function renderOverview(req, res){
+
+  getData()
+
+  res.render('artObjects.ejs',{
+    artList: data
+  })
+
+})
+
+
+
+
+
+// Create a route for overview page
+// app.get('/artobjects', function(err, res) {
+
+//     if (err) {
+//       // We got an error
+//       res.send(err);
+//       } 
       
-        if (err) {
-          // We got an error
-          res.send(err);
-          } 
-          
-        else {
-          // Render the page using the 'posts' view and our body data
-          res.render('artObjects.ejs', {
-            postData: body
-            });
-          }
-	});
+//     else {
+
+//       res.render('artObjects.ejs', {
+//         data: body
+//         });
+//       }
+// });
+
 
 
 app.listen(port, function() {

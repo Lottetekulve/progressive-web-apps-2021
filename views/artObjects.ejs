@@ -1,1 +1,26 @@
-<a href="/artobjects">back</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Rijksmuseum API Server Side</title>
+</head>
+    <body>
+        <main>
+            <div>
+                <% artList.forEach(artobject => { %>
+                <article>
+                    <a href='artobjects/<%= artObjects.id %>'>
+                        <img src="<%= artObjects.webImage.url %>" alt="art object image">
+                        <h2><%= artObjects.title %></h2>
+                        <h3><%= artObjects.principalOrFirstMaker %></h3>
+                    </a>
+                </article> 
+                <% }); %>
+            </div>
+        </main>
+        
+<script src="../index.js"></script>
+</body>
+</html>
