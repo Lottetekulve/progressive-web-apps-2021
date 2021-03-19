@@ -1,8 +1,13 @@
 const express = require("express")
 const path = require('path');
+require('dotenv').config();
+
 const app = express()
-const port = 3000
+
+
+const PORT = process.env.PORT || 3000;
 const getData = require('./modules/api.js')
+
 
 // Tell express to use a 'static/public' folder
 // If the url matches a file it will send that file
@@ -36,15 +41,8 @@ app.get('/artobjects/:objectNumber', async function renderDetail(req, res){
 })
 
 
-app.listen(port, function() {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+// listen for requests
+app.listen(PORT, () => {
+  console.log(`App is launched on  http://localhost:${PORT}`)
+});
 
-
-
-// links: art.links.web,
-// webImage: art.webImage.url,
-// longTitle: art.longTitle,
-// principeOrFirstMaker: art.principeOrFirstMaker,
-// productionPlaces: art.productionPlaces,
-// objectNumber: art.objectNumber
