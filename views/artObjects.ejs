@@ -1,26 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css">
-  <title>Rijksmuseum API Server Side</title>
-</head>
+<%- include('./partials/head.ejs') %>
     <body>
         <main>
-            <div>
+            <h1>Rijksmuseum API Server Side</h1>
+            <div class="overviewPage">
                 <% artList.forEach(artobject => { %>
-                <article>
-                    <a href='artobjects/<%= artObjects.id %>'>
-                        <img src="<%= artObjects.webImage.url %>" alt="art object image">
-                        <h2><%= artObjects.title %></h2>
-                        <h3><%= artObjects.principalOrFirstMaker %></h3>
+                <article class="artobject">
+                    <a href='/artobjects/<%= artobject.objectNumber %>'>
+                        <img src="<%= artobject.webImage.url %>" alt="art object image">
+                        <h2><%= artobject.title %></h2>
+                        <h3><%= artobject.principalOrFirstMaker %></h3>
                     </a>
                 </article> 
                 <% }); %>
             </div>
-        </main>
-        
-<script src="../index.js"></script>
+        </main>   
 </body>
 </html>

@@ -1,1 +1,18 @@
-<a href="/artobjects">back</a>
+<%- include('./partials/head.ejs') %>
+<body>
+    <main>
+        <a href="/artobjects">back</a>
+        <h1><%= artObject.longTitle %></h1>
+        <div class="detailPage">
+            <article class="artobject">
+                <a href='artobjects/<%= artObject.links.web %>'></a>
+                    <img src="<%= artObject.webImage.url %>" alt="art object image">
+                    <h2><%= artObject.principalOrFirstMaker %></h2>
+                    <h3><%= artObject.productionPlaces %></h3>
+                    <h4><%= artObject.objectNumber %></h4>
+                </a>
+            </article> 
+        </div>
+    </main>   
+</body>
+</html>
