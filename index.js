@@ -16,11 +16,6 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 
-// app.get('/', function(req, res,) {
-//   res.send('Hello World!')
-// });
-
-
 app.get('/', async function renderOverview(req, res){
   const url = 'https://www.rijksmuseum.nl/api/nl/collection/?key=7TAeATmh&ps=200'
   const data = await getData(url)
@@ -40,9 +35,9 @@ app.get('/artobjects/:objectNumber', async function renderDetail(req, res){
   res.render('artObject.ejs', { artObject })
 })
 
-// app.get('/offline', function (req, res) {
-//   res.render('offline');
-// })
+app.get('/offline', function (req, res) {
+  res.render('offline');
+})
 
 // listen for requests
 app.listen(PORT, () => {

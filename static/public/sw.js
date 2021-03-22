@@ -22,8 +22,6 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
     const req = event.request
 
-    console.log("Fetching:" + req.url)
-
     event.respondWith(
 
         caches.match(req)
