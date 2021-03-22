@@ -1,0 +1,26 @@
+{
+    "name": "PWA rijksmuseum_app",
+    "short_name": "rijksmuseum",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+          "src": "/images/icon.png",
+          "sizes": "144x144",
+          "type": "image/png"
+        },
+        {
+            "src": "/images/icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          },
+          {
+            "src": "/images/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+          }
+    ]
+}

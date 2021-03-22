@@ -40,9 +40,11 @@ app.get('/artobjects/:objectNumber', async function renderDetail(req, res){
   res.render('artObject.ejs', { artObject })
 })
 
+app.get('/offline', function (req, res) {
+  res.render('offline');
+})
 
 // listen for requests
 app.listen(PORT, () => {
   console.log(`App is launched on http://localhost:${PORT}`)
 });
-
