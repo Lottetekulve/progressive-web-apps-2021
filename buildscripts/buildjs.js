@@ -1,8 +1,8 @@
 const gulp = require('gulp')
 const concat = require('gulp-concat')
 const uglify = require('gulp-uglify')
-
-return gulp.src('./static/js/*.js')
+ 
+gulp.src('./static/public/scripts/*.js')
     .pipe(concat('builded.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('../static/public'))
+    .pipe(gulp.dest('static/public'))

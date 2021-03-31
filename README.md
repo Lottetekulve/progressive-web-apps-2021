@@ -1,54 +1,71 @@
-# Progressive Web Apps @cmda-minor-web · 20-21
-
-In this course we will convert the client side web application previously made Web App From Scratch into a server side rendered application. We also add functionalities based on the Service Worker and turn the application into a Progressive Web App. Ultimately we are going to implement a series of optimisations to improve the performance of the application.  
-
-## Learning goals
-- _You understand the difference between client side and server side rendering and you can apply server side rendering
-in your application_
-- _You understand how a Service Worker works and you can implement it in your application._
-- _You understand how the critical render path works and how you can optimize it for a better runtime and / or perceived performance._
-
-[Rubric with learning goals](https://icthva.sharepoint.com/:x:/r/sites/FDMCI_EDU__CMD20_21_Minor_Web_5i7j73jt/_layouts/15/Doc.aspx?sourcedoc=%7B276F53A7-2531-4006-8AD2-08C9A82D3A11%7D&file=PWA%202021%20Rubric.xlsx&action=edit&mobileredirect=true&wdPreviousSession=92686bea-446f-40e3-9303-33fa3f832b82&wdOrigin=TEAMS-ELECTRON.teams.undefined)
-
-## Program
-
-### Week 1 - Server Side Rendering 📡
-
-Goal: Render web pages server side
-
-[Exercises](https://github.com/cmda-minor-web/progressive-web-apps-2021/blob/master/course/week-1.md)    
-[Server Side Rendering - slides Declan Rek](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/cmd-2021-server-side-rendering.pdf)  
-
-
-### Week 2 - Progressive Web App 🚀
-
-Goals: Convert application to a Progressive Web App
-
-[Exercises](https://github.com/cmda-minor-web/progressive-web-apps-2021/blob/master/course/week-2.md)  
-[Progressive Web Apps - slides Declan Rek](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/cmd-2020-progressive-web-apps.pdf)
-
-
-### Week 3 - Critical Rendering Path 📉 
-
-Doel: Optimize the Critical Rendering Path   
-[Exercises](https://github.com/cmda-minor-web/progressive-web-apps-2021/blob/master/course/week-3.md)  
-[Critical Rendering Path - slides Declan Rek](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/cmd-2020-critical-rendering-path.pdf)
-
-
 <!-- Add a link to your live demo in Github Pages 🌐-->
+Link naar live demo: https://rijksmuseum-app-pwa.herokuapp.com/
 
 <!-- ☝️ replace this description with a description of your own work -->
 
-<!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
+# Table of content:
+- About the app
+- Get de data van de api
+- Gebruik van de data
+- Filter, map & reduce
+- Feedback aan de gebruiker
 
-<!-- Maybe a table of contents here? 📚 -->
 
-<!-- How about a section that describes how to install this project? 🤓 -->
+## Rijksmuseum webapp. Data gekregen uit API:
+API link: https://www.rijksmuseum.nl/api/nl/collection/?key=7TAeATmh
+ ![](./images/data.png)
+In deze API is voor alle art objecten uit het rijksmuseum informatie te vinden. Denk aan de kunstenaar, uit welk jaar, waar het gemaakt is en natuurlijk de titel met een afbeelding. Daarnaast worden de artikel nummers vernoemd en links naar de detailpagina van het kunstwerk op de website van het rijksmuseum. 
+Er komt overzichtspagina waarbij je alle art objects kan zien, samen met hun titel en de kunstenaar. Op de overzichtspagina komen filters om makkelijk een art object te kunnen terug vinden. Daarnaast krijgt elk art object een eigen detail page waar nog wat meer informatie te vinden zal zijn over de kunstwerken.
 
-<!-- ...but how does one use this project? What are its features 🤔 -->
+## Get de data van de api:
+Deze code heb ik gebruikt om de data te fetchen uit de api.
+- `module.exports = async function getData(url) {`
+  `return fetch(url)`
+    `.then((response) => response.json())`
+   ` .catch((err) => console.log(err));`
+`}`
 
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
+## Gebruik van de data
+Vervolgens gebruik ik deze code om van de data html elementen te maken.
+- `app.get('/offline', function (req, res) {`
+  `  res.render('offline');`
+  `})`
 
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
+- `app.get('/artobjects/:objectNumber', async function renderDetail(req, res){`
+  `  const url = https://www.rijksmuseum.nl/api/nl/collection/${req.params.objectNumber}?key=7TAeATmh`
+  `const data = await getData(url)`
+  `  const artObject = data.artObject`
+  `  res.render('artObject.ejs', { artObject }})`
 
-<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
+- `link.appendChild(container);`
+  `container.appendChild(picture);`
+
+## Pagina's
+Filter gebruik ik om de data te filteren en om een filter te hebben op de overzichtspagina.
+- `<div class="overviewPage">`
+      `<% artList.forEach(artobject => { %>`
+     `  <a href='/artobjects/<%= artobject.objectNumber %>'> `
+     ` <h2><%= artobject.title %></h2>`
+
+
+## Buildscripts:
+Buildscripts:
+`gulp.src('./static/public/css/styles.css')`
+`.pipe(concat('builded.css'))`
+`.pipe(minify())`
+`.pipe(gulp.dest('static/public'))`
+
+## SW en Manifest:
+Service worker:
+`self.addEventListener('install', (event) => {`
+`self.addEventListener("activate", (event) => {`
+`self.addEventListener("fetch", (event) => {`
+
+## Critical rendering path
+Optimaliseren:
+- compression, gulp (buildscripts)
+`const compression = require('compression');`
+`app.use(compression());`
+
+
+

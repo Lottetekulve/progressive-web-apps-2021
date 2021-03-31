@@ -1,8 +1,8 @@
 const gulp = require('gulp')
-const concat = require('gulp-clean-css')
-const uglify = require('gulp-minify')
-
-return gulp.src('./static/styles/*.css')
+const concat = require('gulp-concat')
+const minify = require('gulp-clean-css')
+ 
+gulp.src('./static/public/css/styles.css')
     .pipe(concat('builded.css'))
-    .pipe(uglify())
-    .pipe(gulp.dest('../static/public'))
+    .pipe(minify())
+    .pipe(gulp.dest('static/public'))
