@@ -7,8 +7,10 @@ Link naar live demo: https://rijksmuseum-app-pwa.herokuapp.com/
 - About the app
 - Get de data van de api
 - Gebruik van de data
-- Filter, map & reduce
-- Feedback aan de gebruiker
+- Pagina's
+- Buildscripts
+- SW en manifest
+- Critical rendering path
 
 
 ## Rijksmuseum webapp. Data gekregen uit API:
