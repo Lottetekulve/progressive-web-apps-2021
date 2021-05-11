@@ -65,9 +65,43 @@ Service worker:
 
 ## Critical rendering path
 Optimaliseren:
-- compression, gulp (buildscripts)
+- compression, gulp (buildscripts), slice
 `const compression = require('compression');`
 `app.use(compression());`
 
+```
+const orginalImage = artObject.webImage.url;
+    const editImage = orginalImage.slice(0, -1);
+    const smallerImg = editImage + '400';
+```
+
+## Used Packages
+- compression
+- debug
+- ejs
+- express
+- node-fetch
+- dotenv
+- gulp
+- nodemon
+
+Install:
+1. npm install
+2. npm install 
+3. require: `const ... = require('...')`
 
 
+# Install project
+1. clone repo: 
+``` 
+https://github.com/Lottetekulve/progressive-web-apps-2021-lotte.git
+```
+2. Install used packages: 
+```
+npm install
+```
+3. Start op het web: 
+```
+npm run dev
+```
+4. Te vinden op: http://localhost:3000/
