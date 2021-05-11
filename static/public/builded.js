@@ -1,1 +1,1 @@
-"serviceWorker"in navigator&&window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").then(function(e){return e.update()})});
+"serviceWorker"in navigator&&window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").then(function(n){return n.update()})});const btn=document.querySelector("button");function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}btn.addEventListener("click",topFunction);

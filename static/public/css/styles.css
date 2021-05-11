@@ -1,9 +1,13 @@
-html {
+html{
+  min-height: 100vh;
+}
+body {
     font-family: 'Roboto', sans-serif;
     color: black;
     background: hsl(35, 75%, 97%);
-    max-width: 1400px;
+    max-width: 1300px;
     margin: 0 auto;
+    min-height: 100vh;
 }
 
 .overviewPage {
@@ -11,8 +15,11 @@ html {
   flex-wrap: wrap;
   justify-content: center;
 }
-  
-  
+
+.detailPage img{
+  max-width: 500px;
+  max-height: 70%;
+}
   
 
 /* teksten */
@@ -45,6 +52,10 @@ h3{
   width: 100%;
 }
 
+h4{
+  text-align: center;
+}
+
 
 /* images and links */
 
@@ -57,8 +68,8 @@ img {
 
 a {
   text-decoration: none;
+  color: black;
   max-height: 200px;
-
 }
 
 
@@ -77,4 +88,9 @@ a {
 }
 
 
+button{
+  width: 200px;
+  height: 50px;
+  margin: auto auto;
+}
 

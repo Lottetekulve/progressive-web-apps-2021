@@ -3,15 +3,19 @@
         <main>
             <h1>Rijksmuseum API Server Side</h1>
             <div class="overviewPage">
-                <% artList.forEach(artobject => { %>
-                <article class="artobject">
-                    <a href='/artobjects/<%= artobject.objectNumber %>'>
-                        <img src="<%= artobject.webImage.url %>" alt="art object image">
-                        <h2><%= artobject.title %></h2>
-                        <h3><%= artobject.principalOrFirstMaker %></h3>
-                    </a>
-                </article> 
-                <% }); %>
+                <% postData.forEach(function(thumbail) { %>
+                    <article class="artobject">
+                        <a href='/artobjects/<%= thumbail.number %>'>
+                            <%- thumbail.title %>
+                            <picture>
+                                <img src="<%- thumbail.imageUrl%>" width="<%= thumbail.imageWidth %>px"  alt="artpiece of artist" loading="lazy">
+                            </picture>	
+                            <h2><%= thumbail.titel %></h2>
+                            <h3><%= thumbail.artist %></h3>			
+                        </a>
+                    </article>		
+                <% }) %>
             </div>
+            <button onClick="window.location.reload();">Volgende pagina</button>
         </main>   
-<%- include('./partials/footer.ejs') %>
+<%- include('./partials/footer.ejs') %> 

@@ -6,3 +6,4 @@ gulp.src('./static/public/scripts/*.js')
     .pipe(concat('builded.js'))
     .pipe(uglify())
     .pipe(gulp.dest('static/public'))
+
