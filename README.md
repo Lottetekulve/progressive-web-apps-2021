@@ -15,7 +15,7 @@ Link naar live demo: https://rijksmuseum-app-pwa.herokuapp.com/
 
 ## Rijksmuseum webapp. Data gekregen uit API:
 API link: https://www.rijksmuseum.nl/api/nl/collection/?key=7TAeATmh
- ![](./images/data.png)
+ ![](./static/public/images/data.png)
 In deze API is voor alle art objecten uit het rijksmuseum informatie te vinden. Denk aan de kunstenaar, uit welk jaar, waar het gemaakt is en natuurlijk de titel met een afbeelding. Daarnaast worden de artikel nummers vernoemd en links naar de detailpagina van het kunstwerk op de website van het rijksmuseum. 
 Er komt overzichtspagina waarbij je alle art objects kan zien, samen met hun titel en de kunstenaar. Op de overzichtspagina komen filters om makkelijk een art object te kunnen terug vinden. Daarnaast krijgt elk art object een eigen detail page waar nog wat meer informatie te vinden zal zijn over de kunstwerken.
 
@@ -74,6 +74,8 @@ const orginalImage = artObject.webImage.url;
     const editImage = orginalImage.slice(0, -1);
     const smallerImg = editImage + '400';
 ```
+ ![](./static/public/images/performance.png)
+
 
 ## Used Packages
 - compression
